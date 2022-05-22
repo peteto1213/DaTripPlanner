@@ -1,0 +1,249 @@
+{
+	"info": {
+		"_postman_id": "a40de51e-dbe9-4ef4-8129-8c3c1bc7f5f3",
+		"name": "TripPlan",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create plan",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"planName\": \"drew\",\r\n    \"castleTicketNum\": {\r\n        \"6301\": 1,\r\n        \"6302\": 2\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tripPlan/createPlan",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tripPlan",
+						"createPlan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "change plan name",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n     \"planName\": \"zhangweidong\",\r\n     \"planId\": \"b2ff6940-6cbe-4eab-bae5-029e526ec475\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/tripPlan/changePlanName",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tripPlan",
+						"changePlanName"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete castle ticket to the plan",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "planCastleTicketId",
+							"value": "18",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/tripPlan/deleteCastleTicketToThePlan",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tripPlan",
+						"deleteCastleTicketToThePlan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete bus ticket to the plan",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "planBusTicketId",
+							"value": "5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/tripPlan/deleteBusTicketToThePlan",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tripPlan",
+						"deleteBusTicketToThePlan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete train ticket to the plan",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "planTrainTicketId",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/tripPlan/deleteTrainTicketToThePlan",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tripPlan",
+						"deleteTrainTicketToThePlan"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "view plan",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "cookie",
+						"value": "SESSION=NzAwOWFhMWQtNDc5Ni00NmY2LTljZTYtNjFkNzk0MWQ3Yjll; Path=/;",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/tripPlan/viewPlan?page=0&size=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tripPlan",
+						"viewPlan"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "view plan detail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/tripPlan/viewPlanDetail?planId=65620f60-9581-4a6b-a820-e12423ae216b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tripPlan",
+						"viewPlanDetail"
+					],
+					"query": [
+						{
+							"key": "planId",
+							"value": "65620f60-9581-4a6b-a820-e12423ae216b"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete plan",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "planId",
+							"value": "e36450fa-1223-4ec6-b2ca-0cd60e4782ce",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/tripPlan/deletePlan",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"tripPlan",
+						"deletePlan"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

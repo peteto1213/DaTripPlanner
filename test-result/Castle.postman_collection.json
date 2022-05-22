@@ -1,0 +1,182 @@
+{
+	"info": {
+		"_postman_id": "6ea5dbe4-62e7-4d56-a1a5-e4f6d45aafb0",
+		"name": "Castle",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getCastleAvgPriceBycastleId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "http://localhost:8080/castle/getCastleTicketPrice?castleId=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"castle",
+						"getCastleTicketPrice"
+					],
+					"query": [
+						{
+							"key": "castleId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getDateOfCastle",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "castleId",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "/localhost:8080/castle/getCastleAvailableDateById",
+					"path": [
+						"localhost:8080",
+						"castle",
+						"getCastleAvailableDateById"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAvailableTimeByCastleId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{castle}}getAvailableTimeByCastleId?castleId=1&date=20220425",
+					"host": [
+						"{{castle}}getAvailableTimeByCastleId"
+					],
+					"query": [
+						{
+							"key": "castleId",
+							"value": "1"
+						},
+						{
+							"key": "date",
+							"value": "20220425"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get castle ticket",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{castle}}getCastleTicketByDateAndTime?date=20220501&time=1030&castleId=1",
+					"host": [
+						"{{castle}}getCastleTicketByDateAndTime"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "20220501"
+						},
+						{
+							"key": "time",
+							"value": "1030"
+						},
+						{
+							"key": "castleId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAvailableTimeByCastleId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "castleId",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "date",
+							"value": "20220501",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{castle}}getAvailableTimeByCastleId",
+					"host": [
+						"{{castle}}getAvailableTimeByCastleId"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCastleAvailableDateById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "castleId",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{castle}}getCastleAvailableDateById",
+					"host": [
+						"{{castle}}getCastleAvailableDateById"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,43 @@
+{
+	"info": {
+		"_postman_id": "07965058-dc71-4d96-83df-e75cf836eb07",
+		"name": "Payment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "horsepay",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"storeID\": \"Team03\",\r\n    \"customerID\": \"C6678345\",\r\n    \"date\": \"10/06/2021\",\r\n    \"time\": \"10:55\",\r\n    \"timeZone\": \"GMT\",\r\n    \"transactionAmount\": 15.99,\r\n    \"currencyCode\": \"GBP\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://homepages.cs.ncl.ac.uk/daniel.nesbitt/CSC8019/HorsePay/HorsePay.php",
+					"protocol": "http",
+					"host": [
+						"homepages",
+						"cs",
+						"ncl",
+						"ac",
+						"uk"
+					],
+					"path": [
+						"daniel.nesbitt",
+						"CSC8019",
+						"HorsePay",
+						"HorsePay.php"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

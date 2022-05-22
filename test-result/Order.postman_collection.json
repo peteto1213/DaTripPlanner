@@ -1,0 +1,234 @@
+{
+	"info": {
+		"_postman_id": "49b60041-0d00-43ae-9149-201aea0e0c07",
+		"name": "Order",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "planId",
+							"value": "641b38bb-a1c0-4890-b43c-97f1e767634b",
+							"type": "text"
+						},
+						{
+							"key": "transactionAmount",
+							"value": "10.99",
+							"type": "text"
+						},
+						{
+							"key": "cardNumber",
+							"value": "1111222233334444",
+							"type": "text"
+						},
+						{
+							"key": "securityCode",
+							"value": "111",
+							"type": "text"
+						},
+						{
+							"key": "expireDate",
+							"value": "02/26",
+							"type": "text"
+						},
+						{
+							"key": "ownerName",
+							"value": "WEIDONG ZHANG",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/order/generateOrder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"generateOrder"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "view order",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "SESSION=MzQwZGY0ZDUtN2M4MC00ZDUwLWFiNTQtMDA4NTlkZDYyNzZk; Path=/;",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/order/viewOrderInfo?page=0&size=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"viewOrderInfo"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "view castle order info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/order/viewCastleOrderInfo?castleOrderId=112",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"viewCastleOrderInfo"
+					],
+					"query": [
+						{
+							"key": "castleOrderId",
+							"value": "112"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "view bus order info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/order/viewBusOrderInfo?orderId=c7ca1b37-112c-4c49-b70a-ee990d9492d9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"viewBusOrderInfo"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "c7ca1b37-112c-4c49-b70a-ee990d9492d9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "view train order info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/order/viewTrainOrderInfo?orderId=c7ca1b37-112c-4c49-b70a-ee990d9492d9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"viewTrainOrderInfo"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "c7ca1b37-112c-4c49-b70a-ee990d9492d9"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "view single order info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/order/viewSingleOrderInfo?orderId=ac253b8b-272a-4e23-b957-441f479e7ca1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"viewSingleOrderInfo"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "ac253b8b-272a-4e23-b957-441f479e7ca1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete order",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "orderId",
+							"value": "c7ca1b37-112c-4c49-b70a-ee990d9492d9",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/order/deleteOrder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order",
+						"deleteOrder"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

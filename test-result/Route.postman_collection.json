@@ -1,0 +1,274 @@
+{
+	"info": {
+		"_postman_id": "65e2e7d9-b087-4bfb-874f-4ae7c6f51a97",
+		"name": "Route",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getRoute",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "castleId",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "date",
+							"value": "20220501",
+							"type": "text"
+						},
+						{
+							"key": "departureTime",
+							"value": "1100",
+							"type": "text"
+						},
+						{
+							"key": "ticketQuantity",
+							"value": "5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/route/getRoute",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"route",
+						"getRoute"
+					],
+					"query": [
+						{
+							"key": "castleId",
+							"value": "1",
+							"disabled": true
+						},
+						{
+							"key": "date",
+							"value": "202205027",
+							"disabled": true
+						},
+						{
+							"key": "departureTime",
+							"value": "1000",
+							"disabled": true
+						},
+						{
+							"key": "ticketQuantity",
+							"value": "5",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getRouteAndTicketInfo",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "castleId",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "date",
+							"value": "20220605",
+							"type": "text"
+						},
+						{
+							"key": "departureTime",
+							"value": "0846",
+							"type": "text"
+						},
+						{
+							"key": "ticketQuantity",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/route/getRoute",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"route",
+						"getRoute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get return route",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "castleId",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "date",
+							"value": "20220603",
+							"type": "text"
+						},
+						{
+							"key": "departureTime",
+							"value": "1100",
+							"type": "text"
+						},
+						{
+							"key": "ticketQuantity",
+							"value": "5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{remote address}}route/getReturnRoute",
+					"host": [
+						"{{remote address}}route"
+					],
+					"path": [
+						"getReturnRoute"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "{{home}}insertTrainTicket",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"value": "src/main/resources/data/routeDetailld_3.xlsx",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "bus",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/test/insertRealData",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"test",
+						"insertRealData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "添加随机数据",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "transportType",
+							"value": "train",
+							"type": "text"
+						},
+						{
+							"key": "transportId",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "travelTime",
+							"value": "26",
+							"type": "text"
+						},
+						{
+							"key": "routeDetailId",
+							"value": "23",
+							"type": "text"
+						},
+						{
+							"key": "timeGap",
+							"value": "57",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "8.7",
+							"type": "text"
+						},
+						{
+							"key": "type",
+							"value": "adult price for LNER return ",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/test/insertTestData",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"test",
+						"insertTestData"
+					],
+					"query": [
+						{
+							"key": "transportType",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

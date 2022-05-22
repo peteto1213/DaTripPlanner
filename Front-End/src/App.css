@@ -1,0 +1,2298 @@
+/**
+  @author: Pete To
+  @version: 1.0
+  This CSS file controls all the styles of the webpage components
+  According to the meeting, Main-color: #8ad2ce , Sec-color: rgb(112,159,154)
+  Each section below will be responsible for corresponding React component(s) stated
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap");
+
+/**
+  @author: Pete To
+  @version: 1.0
+  The Global variables style, any future change in font style, color can be adjusted here
+ */
+/* Start of Global variables */
+:root {
+  --mainColor: #8ad2ce;
+  --mainColorShadow: rgba(138, 210, 206, 0.5);
+  --mainLighterShadow: rgba(137, 210, 206, 0.7);
+  --secColor: rgb(112,159,154);
+  --secColor-lighter: rgba(112,159,154,0.9);
+}
+
+* {
+  font-family: "Nunito", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-transform: capitalize;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+*::selection {
+  background: var(--mainColor);
+  color: #ffffff;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 6rem;
+  position: relative;
+}
+
+.main-content{
+  /* 100vh - height of footer */
+  min-height: calc(100vh - 37rem);
+}
+
+section {
+  padding: 2rem 9%;
+  margin-top: 7rem;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  background: var(--mainColor);
+  color: #000000;
+  padding: 0.8rem 3rem;
+  border: 0.2rem var(--mainColor);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.7rem;
+}
+
+.btn:hover {
+  background: var(--secColor);
+  color: white;
+}
+
+.bin-btn{
+  width: 25%;
+  background: lightpink;
+}
+
+.bin-btn:hover{
+  background: pink;
+  color: white;
+}
+
+.edit-icon{
+  background: none;
+  color: var(--secColor);
+}
+
+.edit-icon:hover{
+  cursor: pointer;
+  color: gray;
+}
+
+.heading {
+  text-align: center;
+  padding: 2.5rem 0;
+  font-size: 3.5rem;
+  background: var(--mainColorShadow);
+  border-radius: 0.5rem;
+  color: rgb(121, 121, 121);
+  margin-bottom: 1.5rem;
+}
+
+/* Start of loading animation dots */
+.loading-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loading{
+  text-align: center;
+  font-size: 3.5rem;
+  margin-top: 2rem;
+  padding: 2rem;
+  color: whitesmoke;
+  background: var(--mainColor);
+  border-radius: 1rem;
+  width: 50%;
+}
+
+.loading:after{
+  content: ' .';
+  animation: dots 1s steps(5,end) infinite;
+}
+
+@keyframes dots {
+  0%, 20% {
+    color: rgba(0,0,0,0);
+    text-shadow:
+            .25em 0 0 rgba(0,0,0,0),
+            .5em 0 0 rgba(0,0,0,0);}
+  40% {
+    color: white;
+    text-shadow:
+            .25em 0 0 rgba(0,0,0,0),
+            .5em 0 0 rgba(0,0,0,0);}
+  60% {
+    text-shadow:
+            .25em 0 0 white,
+            .5em 0 0 rgba(0,0,0,0);}
+  80%{
+    text-shadow:
+            .25em 0 0 white,
+            .5em 0 0 white;}
+  100%{
+    text-shadow:
+            .25em 0 0 white,
+            .5em 0 0 white;}
+}
+
+/* End of loading animation dots */
+.small-words {
+  font-size: 1.5rem;
+  color: gray;
+}
+
+.warnings {
+  color: red;
+  text-transform: none;
+  font-size: 1.5rem;
+}
+
+.register a{
+  text-decoration: underline;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+
+.add-btn{
+  background: white;
+  font-size: 2rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  color: cadetblue;
+  border: 0.1rem solid var(--mainColorShadow);
+}
+
+.add-btn:hover{
+  cursor: pointer;
+  background: rgba(95, 158, 160, 0.1);
+  color: var(--mainColor);
+}
+
+.main-route-details{
+  border-bottom: 0.1rem solid rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* End of Global variables */
+
+/**
+  @author: Pete To
+  @version: 1.0
+  This section controls header component style
+ */
+/* Start of Header section */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--mainColor);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 9%;
+}
+
+header .after-login {
+  display: flex;
+}
+
+header .after-login a i span {
+  font-size: 2rem;
+  text-transform: none;
+}
+
+header .logo {
+  font-size: 2.5rem;
+  font-weight: bolder;
+  color: #000000;
+}
+
+header .logo span {
+  color: var(--secColor);
+}
+
+header .logo span:hover {
+  color: #ffffff;
+}
+
+header .navbar .icon-block i {
+  padding-right: 0.3rem;
+}
+
+header .navbar a{
+  color: #000000;
+  font-size: 1.75rem;
+  margin: 0 1rem;
+}
+
+header .navbar a:hover {
+  color: #ffffff;
+}
+
+header .icons {
+  display: flex;
+}
+
+header .icons i,
+.login_icon {
+  font-size: 2.5rem;
+  color: #000000;
+  cursor: pointer;
+  margin-right: 2rem;
+}
+
+header .icons i:hover {
+  color: #ffffff;
+}
+
+header .login_icon:hover{
+  color: #ffffff;
+}
+
+
+header .search-bar-container {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 2rem;
+  background: var(--mainColorShadow);
+  border-top: 0.1rem solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  z-index: 1001;
+  clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+}
+
+header .search-bar-container.active {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+header .search-bar-container #search-bar {
+  width: 100%;
+  padding: 1rem;
+  text-transform: none;
+  color: #333;
+  font-size: 1.7rem;
+  border-radius: 0.5rem;
+}
+
+header .search-bar-container label {
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 3rem;
+  margin-left: 1.5rem;
+}
+
+header .search-bar-container label:hover {
+  color: var(--mainColor);
+}
+
+header #menu-bar {
+  color: #fff;
+  border: 0.1rem solid #fff;
+  border-radius: 0.5rem;
+  font-size: 3rem;
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  display: none;
+}
+/* End of Header section */
+
+/**
+  @author: Pete To
+  @version: 1.0
+  This section controls the style of Login Component
+ */
+/* Start of Login Section */
+.detail-form-container,
+.login-form-container {
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  min-height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form-container{
+  position: fixed;
+}
+
+.detail-form-container{
+  position: absolute;
+}
+
+.detail-form-container .form-container,
+.login-form-container form {
+  margin: 2rem;
+  padding: 1.5rem 2rem;
+  border-radius: 0.5rem;
+  background: #ffffff;
+  width: 50rem;
+}
+
+.login-form-container form h3 {
+  font-size: 3rem;
+  color: #444;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.login-form-container form .box {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.7rem;
+  color: #333;
+  margin: 0.6rem 0;
+  border: 0.1rem solid rgba(0, 0, 0, 0.3);
+  text-transform: none;
+}
+
+.login-form-container form .box:focus {
+  border-color: var(--mainColor);
+}
+
+.login-form-container form #remember {
+  margin: 2rem 0;
+}
+
+.login-form-container form label {
+  font-size: 1.5rem;
+}
+
+.login-form-container form .btn {
+  display: block;
+  width: 40%;
+}
+
+.login-form-container form p {
+  padding: 0.5rem 0;
+  font-size: 1.5rem;
+  color: #666;
+}
+
+.login-form-container form p a {
+  color: var(--secColor);
+}
+
+.login-form-container form p a:hover {
+  color: #333;
+  text-decoration: underline;
+}
+
+.form-close {
+  position: absolute;
+  top: 2rem;
+  right: 3rem;
+  font-size: 5rem;
+  color: #fff;
+  cursor: pointer;
+}
+/* End of Login Section */
+
+/**
+  @author: Pete To
+  @version: 1.0
+  This section controls the style of home component
+ */
+/* Starts of Home Section */
+.home {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  position: relative;
+  z-index: 0;
+}
+
+.home .content {
+  text-align: center;
+}
+
+.home .content h3 {
+  font-size: 4.5rem;
+  color: #fff;
+  text-transform: uppercase;
+  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.1);
+  font-weight: 700;
+}
+
+.home .content p {
+  font-size: 2.5rem;
+  color: #fff;
+  padding: 0.5rem 0;
+  font-weight: 600;
+}
+
+.home .video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.home .controls {
+  padding: 1rem;
+  border-radius: 5rem;
+  background: rgba(0, 0, 0, 0.7);
+  position: relative;
+  top: 10rem;
+}
+
+.home .controls .vid-btn {
+  height: 2rem;
+  width: 2rem;
+  display: inline-block;
+  border-radius: 50%;
+  background: #fff;
+  cursor: pointer;
+  margin: 0 0.6rem;
+}
+
+.home .controls .vid-btn.active {
+  background: var(--mainColor);
+}
+
+/* End of Home Section */
+
+/**
+  @author: Pete To
+  @version: 1.0
+  This section controls the styles of the castle component
+ */
+/* Start of Castle section */
+.castle .box-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.castle .box-container .box {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 30rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.05);
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.5rem 2rem;
+  font-size: 1.8rem;
+}
+
+.castle .box-container .box h3{
+  font-size: 2rem;
+}
+
+.castle .box-container .box p{
+  margin-bottom: 1.5rem;
+}
+
+.castle .box-container .box h3 i,
+.castle .box-container .box .castle-section i{
+  color: var(--mainColor);
+  padding-right: 0.75rem;
+}
+
+
+.castle .box-container .box img {
+  width: 100%;
+  height: 23rem;
+  object-fit: cover;
+}
+
+.castle .btn {
+  margin-bottom: 3rem;
+  margin-top: 2rem;
+  padding: 1rem 1.5rem;
+  font-size: 1.8rem;
+}
+
+.castle .box-container .box a i {
+  color: white;
+  padding-right: 0.75rem;
+  font-size: 1.8rem;
+}
+
+.castle .slogan {
+  text-align: center;
+  padding: 2.5rem 0;
+  font-size: 3.5rem;
+  background: var(--mainColorShadow);
+  border-radius: 0.5rem;
+  color: rgb(121, 121, 121);
+  margin-top: 2rem;
+}
+
+.castle .slogan .link {
+  color: var(--secColor);
+}
+
+.castle .slogan .link:hover {
+  color: white;
+}
+
+/* End of Castle section */
+
+/**
+  @author: Pete To
+  @version: 1.0
+  This section controls the styles of the contact Component
+ */
+/* Start of contact section */
+.contact .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.contact .row .image {
+  flex: 1 1 35rem;
+}
+
+.contact .row .image img {
+  width: 100%;
+}
+
+.contact .row form {
+  flex: 1 1 50rem;
+  padding: 2rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}
+
+.contact .row form .inputBox {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.contact .row form .inputBox input,
+.contact .row form textarea {
+  width: 49%;
+  margin: 1rem 0;
+  padding: 1rem;
+  font-size: 1.7rem;
+  color: #333;
+  background: #f7f7f7;
+  text-transform: none;
+}
+
+.contact .row form textarea {
+  height: 15rem;
+  resize: none;
+  width: 100%;
+}
+
+/* End of contact section */
+
+/**
+  @author: Pete To
+  @version: 1.0
+  This section controls the style of the footer Component
+ */
+/* Start of footer section */
+.footer {
+  background: var(--mainColor);
+  bottom: 0;
+  width: 100%;
+  height: 37rem;
+  margin-top: 0;
+}
+.footer .box-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer .box-container .box {
+  padding: 1rem 0;
+  flex: 1 1 20rem;
+}
+
+.footer .box-container .box h3 {
+  font-size: 1.5rem;
+  padding: 0.7rem 0;
+}
+
+.footer .box-container .box a {
+  display: block;
+  font-size: 1.5rem;
+  padding: 0.7rem 0;
+  color: #000000;
+}
+
+.footer .box-container .box a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.footer .credit {
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 1rem;
+  font-size: 2rem;
+  font-weight: normal;
+  color: #666;
+  border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
+}
+/* End of footer section */
+
+/**
+  @author: Pete To
+  @version: 1.0
+  This section controls the styles of register component
+ */
+/* Start of register section */
+.register form {
+  padding: 2rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.register form input {
+  margin: 1rem 0;
+  padding: 1.5rem;
+  font-size: 1.7rem;
+  color: #333;
+  background: #f7f7f7;
+  text-transform: none;
+}
+
+.register form .btn {
+  width: 50%;
+}
+
+.register form h3 {
+  font-size: 2rem;
+  margin-left: 0.5rem;
+}
+/* End of register section */
+
+/**
+  @author: Pete To
+  @version: 1.0
+  This section controls the styles of userProfile component
+ */
+/* Start of userProfile section */
+.userProfile {
+  min-height: 60vh;
+  position: relative;
+}
+.userProfile .username {
+  text-align: center;
+  color: var(--mainColor);
+  font-size: 3rem;
+  border-bottom: 0.3rem solid var(--secColor);
+  padding-bottom: 1.5rem;
+  margin-top: 3rem;
+}
+
+.userProfile .user-info-table {
+  font-size: 2rem;
+  margin: 1.5rem 1rem;
+  width: 100%;
+  height: 100%;
+}
+
+.userProfile .user-info-table .table-icon {
+  color: var(--mainColor);
+  padding-right: 1.2rem;
+}
+
+.userProfile .user-info-table tr td {
+  border-bottom: 0.1rem solid rgba(236, 236, 236, 1);
+  padding: 1.5rem;
+}
+
+.userProfile .user-info-table .table-header {
+  font-weight: 700;
+}
+
+.userProfile .user-info-table .table-content{
+  text-transform: none;
+}
+
+.userProfile .actions {
+  margin-top: 2rem;
+}
+
+.userProfile .actions .btn {
+  border-radius: 2rem;
+  padding: 1.7rem;
+  margin: 1.5rem;
+  color: var(--secColor);
+  background: #fff;
+  border: 0.1rem solid var(--secColor);
+}
+
+.userProfile .actions .btn:hover {
+  color: white;
+  background: var(--secColor);
+}
+
+.userProfile .actions .button-icon {
+  padding-right: 0.5rem;
+}
+/* End of userProfile section */
+
+/**
+  @author: Pete To
+  @version: 1.0
+  This section is the parent controller for the style of all trip-components
+  including TripCastle, TripCastleTicket, TripDateAndTime etc.
+ */
+/* Start of Trip Section */
+.trip-section .btn{
+  margin-right: 1.5rem;
+}
+
+.trip-section .cancel-btn{
+  background: pink;
+  color: black;
+}
+
+.trip-section .cancel-btn:hover{
+  background: rgba(255,69,0,0.6);
+  color: white;
+}
+
+.trip-section form label{
+  font-size: 2rem;
+}
+
+.trip-section form label .checkbox-label{
+  margin-left: 1rem;
+}
+
+.trip-section .checkbox-row{
+  margin-bottom: 1.5rem;
+}
+
+.trip-section .row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.trip-section .row .image {
+  flex: 1 1 40rem;
+}
+
+.trip-section .row .image img {
+  width: 100%;
+}
+
+.trip-section .row form {
+  flex: 1 1 40rem;
+  padding: 2rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}
+
+.trip-section .row form .inputBox {
+  padding: 0.5rem 0;
+}
+
+.trip-section .row form .inputBox input,
+.trip-section .row form select{
+  width: 100%;
+  padding: 1rem;
+  border: 0.2rem solid rgba(0, 0, 0, 0.1);
+  font-size: 1.7rem;
+  color: #333;
+  text-transform: none;
+}
+
+.trip-section .row form .inputBox h3, .trip-section h3 {
+  font-size: 2rem;
+  padding: 1rem 0;
+  color: #666;
+}
+
+.trip-section .row form .inputBox h3 span {
+  font-size: 1.5rem;
+  color: #999;
+}
+
+.trip-section .reminder{
+  color: gray;
+  text-transform: none;
+}
+
+.trip-section .trip-endpoint{
+  color: var(--mainColor);
+  font-size: 3rem;
+  text-align: center;
+  border: 0.2rem solid rgba(0,0,0,0.3);
+  margin-bottom: 2rem;
+}
+
+.trip-section .trip-endpoint span{
+  padding: 0 1.2rem 0 1.2rem;
+  color: #333333;
+}
+
+.trip-section .transportation-table{
+  font-size: 2rem;
+}
+
+.trip-section .transportation-table th{
+  border-bottom: 0.3rem solid rgba(0,0,0,0.3);
+  align-items: center;
+}
+
+.trip-section .transportation-table tr td{
+  text-align: center;
+  justify-content: space-between;
+}
+
+.trip-section .trip-transport-row{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.trip-section .trip-transport-row .table-section{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.trip-section .trip-transport-row .table-section table{
+  width: 50%;
+}
+
+.trip-section .trip-summary-table{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.trip-section .trip-summary-table .box{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  max-width: 97%;
+  border: 0.1rem solid rgba(0,0,0,0.1);
+  border-radius: 0.5rem;
+  padding: 1rem 1.5rem 0.5rem 1.5rem;
+  box-shadow: 0 0.2rem 0.4rem var(--mainColorShadow);
+}
+
+.trip-section .trip-summary-table .box p{
+  font-size: 2rem;
+  color: gray;
+  text-decoration: underline;
+}
+
+.trip-section .trip-summary-table .box h3{
+  font-size: 2rem;
+  color: var(--secColor);
+}
+
+.trip-section .trip-summary-table .box .card-container{
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  justify-content: flex-start;
+  padding: 2rem 2rem 0 0.5rem;
+  flex-wrap: wrap;
+}
+
+.trip-section .trip-summary-table .box .card-container .card{
+  border: 0.1rem solid rgba(0,0,0,0.1);
+  box-shadow: 0 1rem 2rem rgba(0,0,0,0.1);
+  padding: 2rem 3rem;
+  margin-bottom: 2rem;
+  border-radius: 1rem;
+}
+
+.trip-section .trip-summary-table .box .card-container .card h3 span{
+  color: gray;
+}
+/* End of Trip section */
+
+/**
+  @author: Pete To
+  @version: 1.0
+  This section controls the styles of trip-components child - TripCastle component
+ */
+/* Start of trip-castle section */
+.trip-section .box-container{
+  display: flex;
+  flex-wrap: wrap;
+  gap:1.5rem;
+}
+
+.trip-section .box-container .box{
+  overflow: hidden;
+  box-shadow: 0 1rem 2rem rgba(0,0,0,0.1);
+  border: 1rem solid #fff;
+  border-radius: 0.5rem;
+  flex: 1 1 30rem;
+  min-height: 35rem;
+  position: relative;
+}
+
+.trip-section .box-container .box-clicked{
+  box-shadow: 0 1rem 2rem rgba(0,0,0,0.1);
+  border: 1rem solid var(--mainColor);
+  border-radius: 0.5rem;
+  flex: 1 1 30rem;
+  min-height: 35rem;
+  position: relative;
+}
+
+.trip-section .box-container img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.trip-section .box-container .content{
+  position: absolute;
+  top: -200%; left: 0;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  background: rgba(0,0,0,0.7);
+  padding: 5rem 2rem 2rem;
+}
+
+.trip-section .box-container .box-clicked .content{
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  background: rgba(0,0,0,0.7);
+  padding: 5rem 2rem 2rem;
+}
+
+.trip-section .box-container .box:hover .content{
+  top: 0;
+  cursor: pointer;
+}
+
+.trip-section .box-container .box-clicked:hover .content{
+  top: 0;
+  cursor: pointer;
+}
+
+.trip-section .box-container .content h3{
+  font-size: 2.5rem;
+  color: var(--mainColor);
+}
+
+.trip-section .box-container .content p{
+  font-size: 1.5rem;
+  color: #eee;
+  padding: 0.5rem 0;
+}
+
+.trip-section .castle-buttons{
+  margin-top: 2rem;
+}
+
+.castle-selected-mark{
+  font-size: 3rem;
+  color: var(--secColor);
+  position: absolute;
+  left: 0; top: 0;
+}
+
+.trip-section .confirm-tickets{
+  margin: 3rem 0;
+  box-shadow: 0 1rem 2rem rgba(0,0,0,0.1);
+  border: 1rem solid #fff;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.trip-section .confirm-tickets h2{
+  font-size: 2.3rem;
+  margin-bottom: 2rem;
+  border-bottom: 0.1rem solid var(--mainColorShadow);
+}
+
+.trip-section .confirm-tickets .ticket-basket-row{
+  border-bottom: 0.2rem solid rgba(0,0,0,0.1);
+  padding-bottom: 3rem;
+}
+
+.trip-section .confirm-tickets .heading{
+  background: lightcyan;
+}
+/* End of trip-castle section */
+
+/**
+  @author: Pete To
+  @version: 1.0
+  This section controls the styles of UserCreatedTrips component
+ */
+/* Start of user-created-trips Section */
+.created-trips{
+  display: flex;
+  flex-direction: column;
+}
+
+.created-trips .top{
+  margin-bottom: 1rem;
+}
+
+.created-trips--newTrips{
+  font-size: 2.5rem;
+  color: white;
+  border: 0.5rem solid var(--secColor);
+  padding: 0 1.5rem;
+  background: var(--secColor);
+  border-radius: 5rem;
+  float: right;
+}
+
+.created-trips--newTrips:hover{
+  background: var(--secColor-lighter);
+  border: 0.5rem solid var(--secColor-lighter);
+}
+
+.created-trips--newTrips i{
+  margin-right: 0.5rem;
+}
+/*------------------------------created-trip box-container--------------------------------*/
+.created-trips .box-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(27rem, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  margin: 0 2rem;
+}
+
+.created-trips .box-container .box{
+  border-radius: 1rem;
+  background: whitesmoke;
+  position: relative;
+}
+
+.created-trips .box-container .box .trip-status-paid,
+.created-trips .box-container .box .trip-status{
+  font-size: 2rem;
+  color: whitesmoke;
+  float: left;
+  position: absolute;
+  background: lightslategray;
+  padding: 1rem 1.5rem;
+  border-radius: 1.5rem;
+}
+
+.created-trips .box-container .box .trip-status-paid{
+  background: var(--mainLighterShadow);
+}
+
+.created-trips .box-container .box .trip-status-paid i,
+.created-trips .box-container .box .trip-status i{
+  font-size: 1.5rem;
+}
+
+.created-trips .box-container .box .trip-status-paid i{
+  color: limegreen;
+}
+
+.created-trips .box-container .box .image{
+  height: 20rem;
+  overflow: hidden;
+  width: 100%;
+}
+
+.created-trips .box-container .box .image img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  transition: 0.2s linear;
+}
+
+.created-trips .box-container .box:hover img{
+  transform: scale(1.1);
+}
+
+.created-trips .box-container .box .content{
+  padding: 2rem;
+}
+
+.created-trips .box-container .box .content h3{
+  font-size: 2rem;
+  color: var(--mainColor);
+  margin-bottom: 1.2rem;
+}
+
+.created-trips .box-container .box .content h3 span{
+  color: gray;
+}
+
+.created-trips .box-container .box .content .trip-name{
+  text-align: center;
+  text-decoration: underline;
+  color: var(--secColor);
+  font-size: 2rem;
+}
+
+.name-input{
+  font-size: 2rem;
+  text-decoration: none;
+  text-align: left;
+  color: var(--secColor);
+  box-shadow: 0 0.1rem 0.2rem rgba(0,0,0,0.1);
+}
+
+.created-trips .box-container .box .content .details{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.created-trips .box-container .box .content .actions{
+  display: flex;
+  justify-content: space-between;
+}
+.created-trips .box-container .box .content .actions .btn{
+  padding: 1rem 2rem;
+}
+
+
+.created-trips .box-container .box .content .actions .cancel-btn{
+  background: palevioletred;
+}
+
+.created-trips .box-container .box .content .actions .cancel-btn:hover{
+  background: indianred;
+}
+
+.created-trips .empty-container .empty-heading{
+  background: rgba(198,218,191, 0.3);
+  margin-top: 5rem;
+  padding: 5rem 0;
+  max-width: 100%;
+}
+/* End of Created Trips Section */
+
+/**
+  @author: Pete To
+  @version: 1.0
+  This section controls the styles of CastleExploration component
+ */
+/* Start of castle-components */
+.castle-section .row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+  font-size: 2rem;
+}
+
+/* row-image */
+.castle-section .row .row-image{
+  flex: 1 1 35rem;
+  max-width: 60vw;
+  max-height: 70vh;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  display: flex;
+  transition: all 0.4s ease;
+}
+
+.castle-section .row .row-image img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.4s ease;
+}
+
+.castle-section .row .row-image .switch{
+  background: none;
+  color: whitesmoke;
+  font-size: 3rem;
+  border: none;
+  position: absolute;
+  height: 50px;
+  width: 70px;
+  top: calc(50% - 25px);
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.castle-section .row .row-image .switch:hover{
+  color: lightgray;
+}
+
+.switch-left{
+  left: 0;
+}
+.switch-right{
+  right: 0;
+}
+
+.castle-section .row .description{
+  flex: 1 1 30rem;
+  padding: 2rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  font-size: 2rem;
+}
+
+.castle-section .row .description .description-section{
+  margin-bottom: 2rem;
+}
+
+.castle-section .row .description .description-section p{
+  font-size: 1.7rem;
+  text-transform: none;
+}
+
+.castle-section .row .description .description-section li{
+  margin-left: 1.5rem;
+}
+
+.castle-section .row .description .description-section li a{
+  color: #333333;
+}
+
+.castle-section .row .description .description-section li a:hover{
+  color: var(--mainColor);
+  text-decoration: underline;
+}
+
+.no-transformation,
+.castle-section .row .description p{
+  text-transform: none;
+  font-size: 1.4rem;
+}
+
+.castle-section .row .description i{
+  color: var(--mainColor);
+}
+
+.castle-section .row .description i span{
+  margin-left: 0.5rem;
+  color: gray;
+}
+
+.castle-section .carousel-row{
+  font-size: 2rem;
+}
+
+.castle-section .carousel-row h1{
+  margin-bottom: 1.5rem;
+}
+
+/* carousel parent div */
+.castle-section .carousel-row .restaurant-carousel{
+  display: flex;
+  flex-direction: row;
+  cursor: grab;
+}
+
+/* carousel child div */
+.castle-section .carousel-row .restaurant-carousel .card{
+  margin-right: 1.5rem;
+  border-radius: 0.5rem;
+  border: 0.1rem solid var(--mainLighterShadow);
+  box-shadow: 0 0.5rem 0.5rem rgba(0,0,0,0.1);
+  padding: 1rem 2rem;
+  min-width: 25vw;
+  max-height: 71vh;
+  overflow: hidden;
+}
+
+.castle-section .carousel-row .restaurant-carousel .card img{
+  width: 100%;
+  height: 50%;
+}
+
+.castle-section .carousel-row .restaurant-carousel .card p{
+  color: var(--secColor);
+}
+
+.castle-section .carousel-row .restaurant-carousel .card p span{
+  color: black;
+}
+
+.castle-section .back-btn{
+  margin-top: 3rem;
+  padding-left: 2rem;
+}
+
+.castle-section .fa-wheelchair{
+  font-size: 2.5rem;
+}
+
+.castle-section .fa-wheelchair:hover{
+  cursor: pointer;
+}
+/* End of castle-components */
+
+/**
+  @author: Pete To
+  @version: 1.0
+  This section controls the styles of TripTransportationInbound and TripTransportationOutbound component
+ */
+/* Start of transportation section */
+.stops{
+  border-bottom: 0.1rem solid rgba(1,1,1,0.1);
+}
+.stops .stop-name{
+  color: var(--mainColor);
+}
+
+.destination a{
+  color: var(--secColor);
+}
+
+.stops .stop-name a{
+  color: #333;
+}
+
+.destination a:hover,
+.stops .stop-name a:hover{
+  text-decoration: underline;
+  color: var(--mainColor);
+}
+
+.stops .stop-time{
+  color: lightslategray;
+  font-size: 1.5rem;
+  padding: 3rem 0 3rem 0.5rem;
+  border-left: 0.5rem dotted rgba(0,0,0,0.1);
+  margin-left: 2rem;
+}
+.stops .stop-icon{
+  font-size: 1.7rem;
+  color: lightgray;
+}
+.box .destination{
+  color: var(--secColor);
+}
+/* End of transportation section */
+
+/**
+  @author: Pete To
+  @version: 1.0
+  This section controls the styles of TripCastleTicket component
+ */
+/* Start of Ticket-section */
+.ticket-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.ticket-row .header{
+  text-decoration: underline;
+  font-weight: bold;
+  color: var(--secColor);
+}
+
+.ticket-row .right{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-width: 15%;
+}
+
+.ticket-row .right h3{
+  margin-right: 2rem;
+}
+
+.ticket-row .right .ticket-quantity{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ticket-row .right .ticket-quantity h3{
+  padding: 1rem;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.ticket-quantity button{
+  font-size: 2rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: var(--mainColor);
+}
+
+.ticket-quantity button:hover{
+  cursor: pointer;
+  background: var(--secColor);
+  color: white;
+}
+
+.ticket-btn{
+  margin-top: 2rem;
+}
+/* End of ticket-section */
+
+/**
+  @author: Pete To
+  @version: 1.0
+  This section controls the styles of BusTimeTable component
+  However, after discussion, busTimeTable will no longer be shown on the web application
+  This section will be saved for future use
+ */
+/* Start of bus-timetable section */
+.bus-timetable .row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.bus-timetable .row form{
+  flex: 1 1 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--mainColor);
+  border-radius: 2rem;
+  padding: 3rem 0;
+  max-height: 30rem;
+}
+
+.bus-timetable .row form input,
+.bus-timetable .row form select{
+  width: 80%;
+  margin: 1rem 0;
+  padding: 1rem;
+  font-size: 1.7rem;
+  color: var(--secColor);
+  border-radius: 0.5rem;
+}
+
+.bus-timetable .row form .btn{
+  width: 50%;
+  background: var(--secColor);
+}
+
+.bus-timetable .row form .btn:hover{
+  background: var(--secColor-lighter);
+}
+
+.bus-timetable .row .timetable{
+  flex: 1 1 65rem;
+  padding: 2rem;
+  box-shadow: 0 1rem 2rem rgba(0,0,0,0.1);
+  border-radius: 0.5rem;
+}
+
+.bus-timetable .row .timetable .timetable-header{
+  font-size: 2rem;
+  color: var(--mainColor);
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  margin: 0 2rem 2rem 2rem;
+}
+
+.bus-timetable .row .timetable .timetable-header h1{
+  margin-right: 2rem;
+}
+
+.bus-timetable .row .timetable .timetable-header h1 span{
+  color: #777;
+}
+
+.bus-timetable .row .timetable .timetable-details{
+  font-size: 1.7rem;
+  color: var(--secColor);
+  text-align: center;
+}
+
+.timetable-details-row{
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.timetable-details-row h3{
+  margin: 0 2rem;
+}
+
+.bus-timetable .row .timetable .timetable-details .timetable-block{
+  display: flex;
+  flex-direction: row;
+  border: 0.1rem solid var(--secColor);
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  margin: 0 2rem;
+  padding: 0 2.5rem;
+}
+
+.bus-timetable .row .timetable .timetable-details .timetable-block .arrow{
+  color: var(--mainColor);
+}
+
+.icon-arrow{
+  font-size: 3rem;
+}
+/* End of bus-timetable section */
+
+/**
+  @author: Pete To
+  @version: 1.0
+  This section controls the styles of UserTripDetails component
+ */
+/* Start of user-trip-details */
+.user-trip-details{
+  padding: 0 5%;
+  margin-top: 7rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.user-trip-details .empty-heading-container{
+  display: flex;
+  width: 100%;
+}
+
+.user-trip-details .empty-heading-container .empty-heading{
+  background: rgba(198,218,191, 0.3);
+  width: 100%;
+}
+
+.user-trip-details .wrapper{
+  border: 0.2rem solid rgba(0,0,0,0.1);
+  border-radius: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  margin-bottom: 3rem;
+}
+
+.user-trip-details .column{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+  font-size: 2rem;
+  border-bottom: 0.1rem solid rgba(0,0,0,0.1);
+  padding-bottom: 3rem;
+}
+
+.user-trip-details .column h1{
+  margin: 0 0 0 2rem;
+  color: var(--secColor);
+  font-size: 3.5rem;
+}
+
+.user-trip-details .first-column{
+  justify-content: space-around;
+}
+
+.user-trip-details .column .column-cells{
+  margin: 0 2rem;
+  max-width: 40vw;
+}
+.user-trip-details .column .column-cells h3{
+  color: var(--secColor);
+}
+
+.user-trip-details .column .column-cells h3 span{
+  color: #777;
+}
+
+.user-trip-details .column .column-cells-left .trip-details{
+  margin-bottom: 2rem;
+  padding: 1.5rem 2rem;
+  border: 0.2rem solid rgba(0,0,0,0.1);
+  border-radius: 1rem;
+  box-shadow: 0 0.3rem 0.2rem rgba(0, 0, 0, 0.2);
+}
+
+
+.user-trip-details .column .column-cells img{
+  max-width: 100%;
+}
+
+.user-trip-details .column .column-cells .cell-content{
+  margin-bottom: 2rem;
+}
+
+.user-trip-details .column .column-cells .cell-content p{
+  text-transform: none;
+}
+
+.user-trip-details .column .column-cells .cell-content li a{
+  color: black;
+}
+
+.user-trip-details .column .column-cells .cell-content li a:hover{
+  color: var(--mainColor);
+  text-decoration: underline;
+}
+
+.user-trip-details .button-column{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.user-trip-details .button-column .back-btn{
+  max-width: 25vw;
+  margin-bottom: 2rem;
+  padding: 2rem 1rem;
+}
+
+.user-trip-details .button-column .checkout-btn{
+  max-width: 25vw;
+  margin-bottom: 2rem;
+  padding: 2rem 3rem;
+  background: var(--mainColorShadow);
+}
+
+.user-trip-details .button-column .checkout-btn:hover{
+  background: var(--secColor-lighter);
+}
+
+.user-trip-details .ticket-column{
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 1rem 3rem 3rem 3rem;
+}
+
+.user-trip-details .ticket-column .ticket-box{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-width: 25%;
+  border: 0.1rem solid rgba(0,0,0,0.1);
+  border-radius: 2rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  padding: 2rem 2.5rem;
+}
+
+.user-trip-details .ticket-column .ticket-box .left{
+  margin-right: 2rem;
+}
+
+.user-trip-details .ticket-column .ticket-box .right{
+  display: flex;
+  flex-direction: column;
+}
+
+.user-trip-details .ticket-column .ticket-box .ticket-box-cell
+{
+  margin-bottom: 2rem;
+  padding-right: 2rem;
+}
+
+.user-trip-details .ticket-column .ticket-box .ticket-box-cell h3{
+  color: var(--mainColor);
+}
+
+.user-trip-details .ticket-column .ticket-box .ticket-box-cell .btn{
+  background: none;
+  border: 0.1rem solid var(--secColor);
+  color: var(--secColor);
+  font-weight: bold;
+}
+
+.user-trip-details .ticket-column .ticket-box .ticket-box-cell .btn:hover{
+  background: var(--secColor);
+  color: white;
+}
+
+.user-trip-details .table{
+  width: 97%;
+  font-size: 2rem;
+  margin: 1rem ;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+.user-trip-details .table th{
+  padding: 0 1.5rem;
+  color: var(--mainColor);
+  text-align: center;
+}
+
+.user-trip-details .table tr td{
+  padding: 1.5rem;
+  border: 0.1rem solid rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.price-row{
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 5rem;
+  font-size: 2rem;
+}
+
+.price-row h3{
+  color: var(--mainColor);
+  border: 0.1rem solid var(--mainLighterShadow);
+  padding: 1rem 2rem;
+  margin-top: 2rem;
+}
+/* End of user-trip-details */
+
+/**
+  @author: Pete To
+  @version: 1.0
+  This section controls the styles of Checkout component
+ */
+/* Start of Checkout section */
+.checkout{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  padding-bottom: 60px;
+  position: relative;
+}
+
+.checkout .heading{
+  width: 100%;
+}
+
+.checkout form{
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+  padding: 20px;
+  width: 600px;
+  padding-top: 160px;
+}
+
+.checkout form .inputBox{
+  margin-top: 20px;
+
+}
+
+.checkout form .inputBox span{
+  display: block;
+  color: #999;
+  padding-bottom: 5px;
+}
+
+.checkout form .inputBox input,
+.checkout form .inputBox select{
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,0,0,0.3);
+  color: #444;
+}
+
+.checkout form .flexbox{
+  display: flex;
+  gap: 15px;
+}
+
+.checkout form .flexbox .inputBox{
+  flex: 1 1 150px;
+}
+
+.checkout form .btn{
+  width: 100%;
+  background: linear-gradient(45deg, var(--mainColor), var(--secColor-lighter));
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.2s linear;
+  border-radius: 10px;
+}
+
+.checkout form .cancel-btn{
+  background: linear-gradient(45deg, mediumvioletred, mediumpurple);
+}
+
+.checkout form .btn:hover{
+  letter-spacing: 2px;
+  opacity: 0.8;
+}
+
+.checkout .card-container{
+  margin-bottom: -150px;
+  height: 250px;
+  width: 400px;
+  position: relative;
+}
+
+.checkout .card-container .front{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0; left: 0;
+  background: linear-gradient(45deg, var(--mainColor), var(--secColor-lighter));
+  border-radius: 5px;
+  backface-visibility: hidden;
+  box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+  padding: 20px;
+  transform: perspective(1000px) rotateY(0deg);
+  transition: transform 0.4s ease-out;
+}
+
+.checkout .card-container .front .image{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+.checkout .card-container .front .image img{
+  height: 50px;
+}
+
+.checkout .card-container .front .card-number-box{
+  padding: 30px 0;
+  font-size: 22px;
+  color: #fff;
+}
+
+.checkout .card-container .front .flexbox{
+  display: flex;
+}
+
+.checkout .card-container .front .flexbox .box:nth-child(1){
+  margin-right: auto;
+}
+
+.checkout .card-container .front .flexbox .box{
+  font-size: 15px;
+  color: #fff;
+}
+
+.checkout .card-container .back{
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(45deg, var(--mainColor), var(--secColor-lighter));
+  border-radius: 5px;
+  padding: 20px 0;
+  text-align: right;
+  backface-visibility: hidden;
+  box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+  transform: perspective(1000px) rotateY(180deg);
+  transition: transform 0.4s ease-out;
+}
+
+.checkout .card-container .back .stripe{
+  background: #000;
+  width: 100%;
+  margin: 10px 0;
+  height: 50px;
+}
+
+.checkout .card-container .back .box{
+  padding: 0 20px;
+}
+
+.checkout .card-container .back .box span{
+  color: #fff;
+  font-size: 15px;
+}
+
+.checkout .card-container .back .box .cvv-box{
+  height: 50px;
+  padding: 10px;
+  margin-top: 5px;
+  color: #333;
+  background: #fff;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.checkout .card-container .back .box img{
+  margin-top:30px ;
+  height: 30px;
+}
+
+.checkout .total{
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+
+.checkout .total span{
+  color: gray;
+}
+/* End of Checkout section */
+
+/**
+  @author: Pete To
+  @version: 1.0
+  This section controls the styles of TripTransportationDetails component
+ */
+/* Start of transportation-detail-form-container */
+.detail-form-container{
+  margin-top: -18rem;
+}
+
+.detail-form-container .form-container{
+  width: 80%;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.detail-form-container .form-container .heading{
+  font-size: 3rem;
+  text-align: center;
+  background: none;
+}
+
+.detail-form-container .form-container .table{
+  width: 95%;
+  border-collapse: collapse;
+}
+
+.detail-form-container .form-container .table thead{
+  background: var(--mainColorShadow);
+}
+
+.detail-form-container .form-container .table thead tr th{
+  font-size: 2.5rem;
+  font-weight: 500;
+  opacity: 1;
+  padding: 1rem;
+  vertical-align: top;
+  border: 0.1rem solid var(--secColor);
+}
+
+.detail-form-container .form-container .table tbody tr td{
+  font-size: 2rem;
+  font-weight: normal;
+  color: #777777;
+  padding: 0.5rem;
+  text-align: center;
+  border: 0.1rem solid var(--secColor);
+}
+
+.detail-form-container .form-container .submit-btn{
+  margin-top: 3rem;
+  width: 25%;
+}
+
+.detail-form-container .form-container .table input{
+  border: 0.1rem solid rgba(0,0,0,0.1);
+  padding: 0.5rem 0;
+  font-size: 2rem;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1);
+}
+
+.detail-form-container .form-close,
+.trip-section .form-close
+{
+  z-index: 100000;
+  background: none;
+}
+/* End of transportation-detail-form-container */
+
+/**
+  @author: Pete To
+  @version: 1.0
+  This section controls the styles of Map component
+ */
+/* Start of Map section */
+.map .map-content{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-around;
+}
+.map .map-content .list{
+  display: flex;
+  flex-direction: column;
+}
+
+.map .map-content .list .box{
+  margin-bottom: 2rem;
+}
+
+.map .map-content .list .box .btn{
+  width: 100%;
+}
+
+.map .map-content iframe{
+  width: 80%;
+}
+/* End of Map section */
+
+/**
+  @author: Pete To
+  @version: 1.0
+  This section controls the styles of Reference component
+ */
+/* Start of Reference Section */
+.reference .row-container{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  margin: 0 2rem;
+}
+
+.reference .row-container .row{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 0.3rem 1rem rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  width: 100%;
+  overflow: hidden;
+}
+
+.reference .row-container .row h3{
+  font-size: 2rem;
+  color: var(--secColor);
+}
+.reference .row-container .row a,
+.reference .row-container .row p{
+  text-transform: none;
+  font-size: 1.7rem;
+}
+
+.reference .row-container .row p{
+  color: gray;
+}
+
+.reference .row-container .row a:hover{
+  text-decoration: underline;
+}
+/* End of Reference Section */
+
+/**
+  @author: Pete To
+  @version: 1.0
+  This sections below show different responsiveness of the website in order to fit different devices:
+  1. width < 1200px
+  2. width < 991px
+  3. width < 900px
+  4. width < 800px
+  5. width < 500px
+ */
+/* width < 1200px */
+@media (max-width: 1200px) {
+  html {
+    font-size: 50%;
+  }
+  .castle-section .carousel-row .restaurant-carousel .card{
+    min-width: 33%;
+  }
+}
+
+/* width < 991px */
+@media (max-width: 991px) {
+  header {
+    padding: 2rem;
+  }
+  section {
+    padding: 2rem;
+  }
+  html {
+    font-size: 55%;
+  }
+  .castle-section .carousel-row .restaurant-carousel .card{
+    min-width: 40%;
+  }
+  .created-trips .box-container .box{
+    max-width: 33vw;
+  }
+}
+
+/* width < 900px */
+@media (max-width: 900px) {
+  header #menu-bar {
+    display: initial;
+  }
+  header .navbar {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    background: var(--mainColorShadow);
+    border-top: 0.1rem solid rgba(255, 255, 255, 0.1);
+    padding: 1rem 2rem;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  header .navbar.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+  header .navbar a {
+    display: block;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    text-align: center;
+    background: var(--secColor);
+    font-weight: 600;
+  }
+  .user-trip-details .column .column-cells{
+    max-width: 85vw;
+  }
+
+  .user-trip-details .column .column-cells iframe{
+    max-width: 100%;
+  }
+  .created-trips .box-container .box{
+    max-width: 45vw;
+  }
+
+}
+
+/* width < 800px */
+@media(max-width: 800px){
+  .main-content{
+    min-height: calc(100vh - 61rem);
+  }
+  .footer{
+    height: 61rem;
+  }
+  .created-trips .action-icons{
+    margin-right: 0.3rem;
+    font-size: 1.8rem;
+  }
+
+  .castle-section .carousel-row .restaurant-carousel .card{
+    min-width: 55%;
+  }
+  .castle-section .row .row-image{
+    max-width: 90vw;
+  }
+
+  .detail-form-container .form-container .table thead{
+    display: none;
+  }
+
+  .detail-form-container .form-container .table,
+  .detail-form-container .form-container .table tbody,
+  .detail-form-container .form-container .table tr,
+  .detail-form-container .form-container .table td{
+    display: block;
+  }
+
+
+  .detail-form-container .form-container .table tr{
+    margin-bottom: 4rem;
+  }
+
+  .detail-form-container .form-container .table tbody tr td{
+    text-align: right;
+    padding: 1rem 1.5rem 1rem 50%;
+    position: relative;
+  }
+
+  .detail-form-container .form-container .table td:before{
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 1.5rem;
+    color: black;
+    font-weight: 600;
+    text-align: left;
+  }
+
+}
+
+/* width < 500px */
+@media (max-width: 500px) {
+  .main-content{
+    min-height: calc(100vh - 57rem);
+  }
+  html {
+    font-size: 50%;
+  }
+  .footer{
+    height: 57rem;
+  }
+
+  .contact .row form .inputBox input {
+    width: 100%;
+  }
+  .castle-section .carousel-row .restaurant-carousel .card{
+    min-width: 65%;
+  }
+  .castle .box-container .box img{
+    height: 30rem;
+  }
+  .checkout form{
+    max-width: 95vw;
+  }
+  .map .map-content iframe{
+    width: 95%;
+  }
+  .bin-btn{
+    width: 50%;
+  }
+  .loading{
+    width: 100%;
+  }
+  .created-trips .box-container .box{
+    max-width: 97vw;
+  }
+
+}
+
+@media(max-width: 400px){
+  .main-content{
+    min-height: calc(100vh - 70rem);
+  }
+  html {
+    font-size: 40%;
+  }
+  .footer{
+    height: 70rem;
+  }
+}

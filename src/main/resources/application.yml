@@ -1,0 +1,70 @@
+spring:
+  datasource:
+#    username: csc8019_team03
+#    password: Warn8our6Lax
+    url: jdbc:mysql://43.131.56.241:3306/team3
+#    url: jdbc:mysql://localhost:4321/csc8019_team03
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    username: leichen
+    password: leichen123
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+  jwt:
+    secret: secret
+
+  redis:
+    host: 43.131.56.241
+    port: 6379
+    database: 0
+    timeout: 1800000
+    password: leichen
+
+
+  mail:
+    host: smtp.office365.com
+#    username: team3.project@outlook.com
+    username: team3NU@outlook.com
+#    password: leichen123
+    password: peter123
+    port: 587
+    protocol: smtp
+    properties.mail.smtp.starttls.enable: true
+    properties.mail.smtp.starttls.required: true
+  mvc:
+    static-path-pattern: /static/**
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  web:
+    resources:
+      static-locations: classpath:/files/,classpath:/static,classpath:/resources
+
+
+
+
+
+server:
+  servlet:
+    encoding:
+      force-response: true
+    session:
+      cookie:
+        http-only: false
+
+
+config:
+  swagger3:
+    flag: true
+
+
+hostAddress: 43.131.56.241:8080/team3-v1
+FlexibleTime: 30
+logging:
+  file:
+    path: ./log

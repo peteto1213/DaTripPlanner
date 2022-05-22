@@ -1,0 +1,107 @@
+{
+	"info": {
+		"_postman_id": "49fafc32-29eb-4c30-99b0-b37a9484dac7",
+		"name": "User Copy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get User Information",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{home}}user/getUserInfo",
+					"host": [
+						"{{home}}user"
+					],
+					"path": [
+						"getUserInfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User Login Copy",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "SESSION=N2QxZTUxOTUtNmY1MS00YTY0LTlhM2ItZTA2NzhmN2I1MDI0; Path=/;",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "linzy9553@hotmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "leichen",
+							"description": "leichen",
+							"type": "text"
+						},
+						{
+							"key": "castleId",
+							"value": "1",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "{{home}}user/login",
+					"host": [
+						"{{home}}user"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "编辑用户信息",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"value": "SESSION=N2QxZTUxOTUtNmY1MS00YTY0LTlhM2ItZTA2NzhmN2I1MDI0; Path=/;",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"email\":\"linzy9553@hotmail.com\",\r\n\"lastName\":\"123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{home}}user/editUserInfo",
+					"host": [
+						"{{home}}user"
+					],
+					"path": [
+						"editUserInfo"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
